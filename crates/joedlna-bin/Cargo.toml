@@ -1,0 +1,33 @@
+[package]
+name = "joedlna-bin"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+build = "build.rs"
+description = "Filesystem-first DLNA/UPnP AV media server"
+
+[[bin]]
+name = "joedlna"
+path = "src/main.rs"
+
+[dependencies]
+thiserror.workspace = true
+tracing.workspace = true
+
+[dependencies.clap]
+version = "4"
+features = ["derive"]
+
+[dependencies.joedlna-core]
+path = "../joedlna-core"
+
+[dependencies.tokio]
+workspace = true
+features = ["macros", "rt-multi-thread"]
+
+[dependencies.tracing-subscriber]
+version = "0.3"
+features = ["env-filter", "json"]

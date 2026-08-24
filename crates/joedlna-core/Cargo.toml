@@ -1,0 +1,42 @@
+[package]
+name = "joedlna-core"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+description = "Core protocol and catalog library for JoeDLNA"
+
+[dependencies]
+axum.workspace = true
+bytes.workspace = true
+notify.workspace = true
+quick-xml.workspace = true
+thiserror.workspace = true
+toml.workspace = true
+tracing.workspace = true
+
+[dependencies.serde]
+workspace = true
+features = ["derive"]
+
+[dependencies.socket2]
+workspace = true
+features = ["all"]
+
+[dependencies.tokio]
+workspace = true
+features = ["fs", "io-util", "macros", "net", "rt-multi-thread", "signal", "sync", "time"]
+
+[dependencies.tokio-util]
+workspace = true
+features = ["io"]
+
+[dependencies.uuid]
+workspace = true
+features = ["v4", "v5"]
+
+[dev-dependencies]
+test-case.workspace = true
+tempfile = "3"

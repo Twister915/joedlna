@@ -1,0 +1,34 @@
+# Copy this file to config.toml, edit the shares, then run:
+# cargo run -p joedlna-bin -- check-config --config config.toml
+
+friendly_name = "JoeDLNA"
+
+[network]
+# A stable port prevents stale LOCATION URLs in television caches.
+# MiniDLNA conventionally uses 8200, so JoeDLNA defaults to 8201.
+http_port = 8201
+# interface = "192.168.1.23"
+ssdp_max_age_seconds = 1800
+
+[scanner]
+# Native filesystem events trigger a scan after this much quiet time. A long
+# fallback interval catches missed events without defeating encode debouncing.
+watch_filesystem = true
+settle_time_seconds = 30
+rescan_interval_seconds = 300
+recursive = true
+follow_symlinks = false
+include_hidden = false
+
+[[shares]]
+name = "Movies"
+path = "/Users/you/Movies"
+media = ["video"]
+
+[[shares]]
+name = "Music"
+path = "/Users/you/Music"
+media = ["audio"]
+
+# Windows paths use ordinary TOML escaping, for example:
+# path = 'D:\Media\Movies'

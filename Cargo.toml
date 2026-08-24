@@ -1,0 +1,37 @@
+[workspace]
+resolver = "3"
+members = [
+    "crates/joedlna-bin",
+    "crates/joedlna-core",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+authors = ["Joey Sacchini <joey@sacchini.net>"]
+license = "MIT"
+repository = "https://github.com/Twister915/joedlna"
+rust-version = "1.88"
+
+[workspace.dependencies]
+axum = "0.8"
+bytes = "1"
+notify = "8"
+quick-xml = "0.38"
+serde = "1"
+socket2 = "0.6"
+test-case = "3"
+thiserror = "2"
+tokio = "1"
+tokio-util = "0.7"
+toml = "0.9"
+tracing = "0.1"
+uuid = "1"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+
+[profile.distribute]
+inherits = "release"
+strip = "symbols"

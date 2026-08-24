@@ -1,0 +1,5 @@
+/target
+/config.toml
+/bookmarks.toml
+/bookmarks.toml.tmp
+.DS_Store
